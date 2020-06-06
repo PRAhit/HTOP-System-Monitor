@@ -3,14 +3,14 @@
 
 float Processor::Utilization() { 
   
-  long prevTotal = pIdle + pNonIdle;
+  long pTotal = pIdle + pNonIdle;
   long Total = Idle + NonIdle;
   
   Idle = LinuxParser::IdleJiffies();
   NonIdle = LinuxParser::ActiveJiffies();
   
 
-  long Tot_Delta = Total - prevTotal;
+  long Tot_Delta = Total - pTotal;
   long Idle_Delta = Idle - pIdle;
   pIdle = Idle;
   pNonIdle = NonIdle;
