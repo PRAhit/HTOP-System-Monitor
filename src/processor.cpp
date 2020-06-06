@@ -1,16 +1,18 @@
-#ifndef PROCESSOR_H
-#define PROCESSOR_H
+#include "processor.h"
+#include "linux_parser.h"
 
-class Processor {
- public:
-  float Utilization();  // TODO: See src/processor.cpp
+// TODO: Return the aggregate CPU utilization
+float Processor::Utilization() { 
+  
+  long prevTotal = pIdle + pNonIdle;
+  long Total = Idle + NonIdle;
+  
+  Idle = LinuxParser::IdleJiffies();
+  NonIdle = LinuxParser::ActiveJiffies();
+  
 
-  // TODO: Declare any necessary private members
- private:
-  long pIdle = 0;
-  long pNonIdle = 0;
-  long Idle;
-  long NonIdle;
-};
-
-#endif
+  long Tot_Delta = Total - prevTotal;
+  long Idle_Delta = Idle - pIdle;
+  pIdle = Idle;
+  pNonIdle = NonIdle;
+  return (float)(Tot_Delta - Idle_Delta) / Tot_Delta; }
