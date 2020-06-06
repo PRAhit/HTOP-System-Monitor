@@ -115,7 +115,7 @@ long LinuxParser::ActiveJiffies(int pid) {
         cutime = std::stol(value);
       }
       else if(count == 16){
-        count = std::stol(value);
+        cstime = std::stol(value);
         break;
       }
       count++;
