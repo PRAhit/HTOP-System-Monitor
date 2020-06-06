@@ -23,7 +23,7 @@ vector<Process>& System::Processes() {
   processes_.clear();
   for (int i : pids) {
     Process process(i);
-    processes_.push_back(process);
+    processes_.emplace_back(process);
   }
   return processes_;
 }
