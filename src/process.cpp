@@ -39,6 +39,11 @@ string key , line, value ;
             data.push_back(value);
         }
 }
+int totalTime = std::stoi(data[13])+std::stoi(data[14])+std::stoi(data[15])+std::stoi(data[16]);
+int seconds = LinuxParser::UpTime()-(std::stoi(data[21])/Hertz);
+float cpuU = (((float)totalTime/(float)Hertz)/(float)seconds);
+
+return cpuU ; }
 
 string Process::Command() { return LinuxParser::Command(Pid()); }
 
