@@ -17,7 +17,7 @@ This project uses [Make](https://www.gnu.org/software/make/). The Makefile has f
 
 # Instructions 
 
-1. Build the project: make build
+1. Build the project: `make build` 
 
-2. Run the resulting executable: ./build/monitor 
+2. Run the resulting executable: `./build/monitor` 
 
