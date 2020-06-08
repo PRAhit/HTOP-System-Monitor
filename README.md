@@ -15,5 +15,9 @@ This project uses [Make](https://www.gnu.org/software/make/). The Makefile has f
 * `clean` deletes the `build/` directory, including all of the build artifacts
 
 
+# Instructions 
 
+1. Build the project: make build
+
+2. Run the resulting executable: ./build/monitor 
 
